@@ -1,0 +1,62 @@
+<div class="cliente-container">
+
+  <div class="layout">
+
+    <!-- FORMULARIO -->
+    <section class="form-section">
+      <h2>Formulario Cliente</h2>
+
+      <form [formGroup]="formCliente" (ngSubmit)="onSubmit()">
+        <div class="grid-form">
+          <div>
+            <label>Nombre</label>
+            <input formControlName="nombre" />
+          </div>
+
+          <div>
+            <label>Documento</label>
+            <input formControlName="documento" />
+          </div>
+
+          <div>
+            <label>Email</label>
+            <input type="email" formControlName="email" />
+          </div>
+        </div>
+
+        <button type="submit">Guardar Cliente</button>
+      </form>
+    </section>
+
+    <!-- TABLA -->
+    <section class="table-section">
+      <h2>Clientes Registrados</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Documento</th>
+              <th>Email</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let c of clientes">
+              <td>{{ c.nombre }}</td>
+              <td>{{ c.documento }}</td>
+              <td>{{ c.email }}</td>
+              <td>
+                <button class="edit-btn">Editar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+</div>
